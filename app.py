@@ -17,8 +17,8 @@ def detect_lang(text: str) -> str:
 
 # ========== Transformer 模型 ==========
 def load_transformer(model_path: str, device: str):
-    tokenizer = AutoTokenizer.from_pretrained(model_path)
-    model = AutoModelForSeq2SeqLM.from_pretrained(model_path).to(device)
+    tokenizer = AutoTokenizer.from_pretrained(model_path, local_files_only=True)
+    model = AutoModelForSeq2SeqLM.from_pretrained(model_path, local_files_only=True).to(device)
     model.eval()
     return tokenizer, model
 
@@ -63,9 +63,9 @@ def load_lstm():
     from lstm_model import Seq2SeqLSTM
     device = "cuda" if torch.cuda.is_available() else "cpu"
 
-    # 用 zh→en 的 tokenizer
+    # 用 zh→en 的 tokenizer（从 models/ 目录加载）
     tokenizer = AutoTokenizer.from_pretrained(
-        "C:/Users/26370/zh-en-translator/pretrained/opus-mt-zh-en", local_files_only=True)
+        str(Path(__file__).parent / "models" / "zh-en-final"), local_files_only=True)
 
     model = Seq2SeqLSTM(tokenizer.vocab_size, embed_dim=256, hidden_dim=512, num_layers=2)
     model_path = Path("models/lstm-zh2en/model.pt")

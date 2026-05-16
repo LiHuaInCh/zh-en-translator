@@ -3,9 +3,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).parent
 
-# 预训练模型路径 (本地下载)
-MODEL_ZH_EN = str(ROOT / "pretrained" / "opus-mt-zh-en")    # 中→英
-MODEL_EN_ZH = str(ROOT / "pretrained" / "opus-mt-en-zh")    # 英→中
+# 模型路径 (本地 models/ 目录)
+MODEL_ZH_EN = str(ROOT / "models" / "zh-en-final")    # 中→英
+MODEL_EN_ZH = str(ROOT / "models" / "en-zh-final")    # 英→中
 
 # 数据
 MAX_SEQ_LENGTH = 128                  # 句子最大 token 数
