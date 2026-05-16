@@ -1,0 +1,33 @@
+# 模型权重
+models/
+*.pth
+*.pt
+*.bin
+*.safetensors
+*.h5
+
+# 数据
+data/
+
+# 日志
+logs/
+runs/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# 论文 & 文档
+*.docx
+*.pdf
+paper_draft.md
+
+# IDE
+.vscode/
+.idea/
+
+# 系统
+.DS_Store
+Thumbs.db
